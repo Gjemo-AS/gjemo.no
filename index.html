@@ -69,23 +69,7 @@ section{padding:56px 0}
 section.wrap{padding-top:56px;padding-bottom:56px} /* .wrap set padding:0 32px and removed the vertical space */
 h2{margin:0 0 22px;font-size:14px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:14px}
 h2::after{content:"";flex:1;height:1px;background:var(--line)}
-.games{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(440px,100%),1fr));gap:24px}
 
-/* Each game is its own world: Snooker Duels keeps its dark, gold and cloth green */
-.world-snooker{position:relative;overflow:hidden;border-radius:20px;color:#F2EEE3;background:radial-gradient(ellipse 90% 70% at 50% -10%,#2A2B25 0%,#0E0F0C 55%,#0A0B09 100%);box-shadow:inset 0 0 0 1px rgba(201,164,92,.55),0 22px 44px rgba(20,22,40,.22);padding:34px 32px 30px;display:flex;flex-direction:column;gap:18px;font-family:'Barlow Condensed',system-ui,sans-serif}
-.world-snooker::before{content:"";position:absolute;left:0;right:0;bottom:0;height:46%;background:radial-gradient(ellipse 70% 90% at 50% 100%,#23704A 0%,#175A33 45%,rgba(13,58,31,0) 100%);opacity:.55;pointer-events:none}
-.world-snooker>*{position:relative}
-.world-snooker .head{display:flex;gap:22px;align-items:center}
-.world-snooker img{flex:none;width:96px;height:96px;border-radius:22.4%;filter:drop-shadow(0 12px 20px rgba(0,0,0,.6))}
-.world-snooker h3{margin:0;font-family:'Playfair Display',serif;font-style:italic;font-weight:400;font-size:36px;line-height:1.1;background:linear-gradient(100deg,#A57E3A 0%,#D4B06A 35%,#FFF6DA 50%,#D4B06A 65%,#A57E3A 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.world-snooker .slogan{margin:4px 0 0;font-size:14px;letter-spacing:.32em;text-transform:uppercase;color:#C9A45C}
-.world-snooker p{margin:0;font-size:19px;line-height:1.5}
-.world-snooker .links{display:flex;flex-wrap:wrap;gap:12px 22px;align-items:center;font-size:15px;letter-spacing:.2em;text-transform:uppercase}
-.world-snooker a{color:#F6E6B4;border-bottom:1px solid rgba(201,164,92,.6);padding:10px 0}
-.world-snooker a:focus-visible{outline-color:#C9A45C}
-.world-snooker .soon{color:#B5AE9E}
-.world-snooker a.icon-link{flex:none;border:0;padding:0;border-radius:22.4%;transition:transform .2s ease}
-.world-snooker a.icon-link:hover{transform:translateY(-2px) scale(1.03)}
 .next{border:1px dashed #C6C9D3;border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-height:220px;color:var(--muted);text-align:center;padding:30px}
 .next b{font-weight:500;font-size:20px;color:var(--text)}
 
@@ -110,8 +94,6 @@ html.no [lang="no"]{display:revert}
   .nav .sec{display:none}
   .hero{padding:64px 0 80px}
   .lockup{gap:18px}
-  .world-snooker{padding:26px 20px}
-  .world-snooker .head{flex-direction:column;align-items:flex-start}
 }
 </style>
 </head>
@@ -122,7 +104,6 @@ html.no [lang="no"]{display:revert}
 <header class="wrap bar">
 <a class="brand" href="./" aria-label="Gjemo"><svg width="40" height="28" aria-hidden="true"><use href="#gjmark"/></svg><span class="word">GJEMO</span></a>
 <nav class="nav" aria-label="Main">
-<a class="sec" href="#games"><span lang="en">Games</span><span lang="no">Spill</span></a>
 <a class="sec" href="#about"><span lang="en">About</span><span lang="no">Om</span></a>
 <a class="sec" href="#contact"><span lang="en">Contact</span><span lang="no">Kontakt</span></a>
 <div class="lang" role="group" aria-label="Language"><button type="button" data-l="en" aria-pressed="true">EN</button><button type="button" data-l="no" aria-pressed="false">NO</button></div>
@@ -138,24 +119,6 @@ html.no [lang="no"]{display:revert}
 <p class="tagline"><span lang="en">Games, made in Norway.</span><span lang="no">Spill, laget i Norge.</span></p>
 <p class="sub"><span lang="en">Independent game studio from Norway</span><span lang="no">Uavhengig spillstudio fra Norge</span></p>
 </div>
-
-<section id="games" class="wrap">
-<h2><span lang="en">Games</span><span lang="no">Spill</span></h2>
-<div class="games">
-<article class="world-snooker">
-<div class="head">
-<a class="icon-link" href="https://snookerduels.com" aria-label="Snooker Duels – snookerduels.com"><img src="snooker-duels-ikon.svg" width="96" height="96" alt="Snooker Duels app icon"></a>
-<div>
-<h3>Snooker Duels</h3>
-<p class="slogan">Duel your way to the top</p>
-</div>
-</div>
-<p lang="en">Snooker, as it's meant to be: full professional rules, computer opponents with minds of their own, and TV-style presentation. Free, with no ads. Ever.</p>
-<p lang="no">Snooker slik det skal være: fulle proffregler, datamotstandere med egen vilje og TV-preg. Gratis, uten reklame. Aldri.</p>
-<div class="links"><a href="https://snookerduels.com">snookerduels.com</a><span class="soon"><span lang="en">Coming soon to iPhone</span><span lang="no">Kommer snart til iPhone</span></span></div>
-</article>
-</div>
-</section>
 
 <section id="about" class="wrap about">
 <h2><span lang="en">About</span><span lang="no">Om</span></h2>
@@ -174,8 +137,8 @@ html.no [lang="no"]{display:revert}
 
 <section id="privacy" class="wrap privacy">
 <h2><span lang="en">Privacy</span><span lang="no">Personvern</span></h2>
-<p lang="en">This site uses no cookies, no analytics and no external scripts, and its fonts are hosted on the site itself. It is hosted by GitHub Pages, which may process technical data such as your IP address when you visit (see <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>). Gjemo does not receive or use that data. For the game, see the <a href="https://snookerduels.com/privacy">Snooker Duels privacy policy</a>.</p>
-<p lang="no">Siden bruker ingen informasjonskapsler, ingen analyse og ingen eksterne skript, og fontene ligger på siden selv. Den driftes av GitHub Pages, som kan behandle tekniske data som IP-adressen din når du besøker den (se <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHubs personvernerklæring</a>). Gjemo mottar eller bruker ikke disse dataene. For spillet, se <a href="https://snookerduels.com/privacy">personvernerklæringen for Snooker Duels</a>.</p>
+<p lang="en">This site uses no cookies, no analytics and no external scripts, and its fonts are hosted on the site itself. It is hosted by GitHub Pages, which may process technical data such as your IP address when you visit (see <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>). Gjemo does not receive or use that data.</p>
+<p lang="no">Siden bruker ingen informasjonskapsler, ingen analyse og ingen eksterne skript, og fontene ligger på siden selv. Den driftes av GitHub Pages, som kan behandle tekniske data som IP-adressen din når du besøker den (se <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHubs personvernerklæring</a>). Gjemo mottar eller bruker ikke disse dataene.</p>
 </section>
 </main>
 
