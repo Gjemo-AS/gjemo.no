@@ -11,6 +11,8 @@
 @font-face{font-family:'Outfit';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/outfit-500.woff2) format('woff2')}
 @font-face{font-family:'Playfair Display';font-style:italic;font-weight:400;font-display:swap;src:url(fonts/playfair-display-italic-400.woff2) format('woff2')}
 @font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/barlow-condensed-500.woff2) format('woff2')}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/barlow-condensed-600.woff2) format('woff2')}
+@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:400;font-display:swap;src:url(fonts/cormorant-garamond-italic.woff2) format('woff2')}
 
 /* Gjemo identity: light, royal blue to violet */
 :root{color-scheme:light;--bg:#EFF0F2;--card:#F8F8FA;--text:#1E2233;--muted:#555B6E;--line:#D9DBE2;--blue:#3B5BDB;--violet:#7C3AED;--link:#4F3BD0;--grad:linear-gradient(45deg,#3B5BDB,#7C3AED)}
@@ -40,7 +42,7 @@ a:focus-visible{outline:2px solid var(--violet);outline-offset:3px;border-radius
 
 /* Hero. The finished lockup is plain markup (also the fallback). The intro script
    slides GJEMO into place while two fountain pens draw the mark (about 2.5 s), then shows it. */
-.hero{position:relative;padding:150px 0 120px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:26px}
+.hero{position:relative;padding:130px 0 96px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:26px}
 .lockup{display:flex;align-items:center;gap:clamp(18px,3vw,34px);margin:0;font-weight:500}
 .lockup .word{font-size:clamp(44px,8.4vw,88px);line-height:1;letter-spacing:.2em;margin-right:-.2em;white-space:nowrap}
 /* One continuous gradient over the whole word (as in the intro), not one per span */
@@ -68,6 +70,50 @@ section{padding:56px 0}
 section.wrap{padding-top:56px;padding-bottom:56px} /* .wrap set padding:0 32px and removed the vertical space */
 h2{margin:0 0 22px;font-size:14px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:14px}
 h2::after{content:"";flex:1;height:1px;background:var(--line)}
+.games{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(440px,100%),1fr));gap:24px}
+
+/* Each game is its own world: Snooker Duels keeps its dark, gold and cloth green; Amerikaner its cabin table */
+.world{position:relative;overflow:hidden;border-radius:22px;padding:32px 30px 28px;display:flex;flex-direction:column;gap:16px;transition:transform .5s cubic-bezier(.22,.8,.24,1),box-shadow .5s cubic-bezier(.22,.8,.24,1)}
+.world>*{position:relative}
+.world::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,0) 38%);pointer-events:none}
+.world:hover{transform:translateY(-4px)}
+.world .head{display:flex;gap:20px;align-items:center}
+.world img{flex:none;width:88px;height:88px;border-radius:22.4%;filter:drop-shadow(0 12px 18px rgba(0,0,0,.4));transition:transform .6s cubic-bezier(.22,.8,.24,1)}
+.world:hover img{transform:scale(1.04) rotate(-1.5deg)}
+.world h3{margin:0;font-size:34px;line-height:1.1}
+.world .slogan{margin:6px 0 0;font-size:13px;letter-spacing:.26em;text-transform:uppercase;white-space:nowrap}
+.world p{margin:0;font-family:'Outfit',system-ui,sans-serif;font-size:17px;line-height:1.6;opacity:.92}
+.world .links{margin-top:auto;padding-top:6px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-family:'Outfit',system-ui,sans-serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+.world .links a,.world .links .soon{display:inline-flex;align-items:center;min-height:36px;padding:0 14px;border-radius:999px;border:1px solid currentColor;transition:background .3s ease,color .3s ease}
+.world .links .soon{opacity:.85}
+/* Flow: the cards rise in one after another as they come into view (only with JS; never with reduced motion) */
+.js .world.rise{opacity:0;transform:translate3d(0,26px,0)}
+.js .world.rise.in{opacity:1;transform:none;transition:opacity .9s cubic-bezier(.22,.8,.24,1),transform .9s cubic-bezier(.22,.8,.24,1)}
+.js .world.rise.in:hover{transform:translateY(-4px)}
+.world:hover{box-shadow:var(--lift,0 30px 60px rgba(20,22,40,.28))}
+.js h2.rise{opacity:0;transition:opacity .9s ease}
+.js h2.rise.in{opacity:1}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .world.rise,.js h2.rise{opacity:1;transform:none}.world,.world img{transition:none}.world:hover,.world:hover img{transform:none}}
+.world-snooker{color:#F2EEE3;background:radial-gradient(ellipse 90% 70% at 50% -10%,#2A2B25 0%,#0E0F0C 55%,#0A0B09 100%);box-shadow:inset 0 0 0 1px rgba(201,164,92,.55),0 22px 44px rgba(20,22,40,.22)}
+.world-snooker::before{content:"";position:absolute;left:0;right:0;bottom:0;height:46%;background:radial-gradient(ellipse 70% 90% at 50% 100%,#23704A 0%,#175A33 45%,rgba(13,58,31,0) 100%);opacity:.55;pointer-events:none}
+.world-snooker h3{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;background:linear-gradient(100deg,#A57E3A 0%,#D4B06A 35%,#FFF6DA 50%,#D4B06A 65%,#A57E3A 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.world-snooker .slogan{color:#C9A45C;font-family:'Barlow Condensed',system-ui,sans-serif;font-size:14px}
+.world-snooker a{color:#F6E6B4;border-color:rgba(201,164,92,.7)}
+.world-snooker a:hover{background:rgba(201,164,92,.16)}
+.world-snooker a:focus-visible{outline-color:#C9A45C}
+.world-amerikaner{color:#F4EFE4;background:radial-gradient(ellipse 90% 80% at 50% 0%,#2A6650 0%,#1f4b3a 55%,#173a2d 100%);box-shadow:inset 0 0 0 1px rgba(244,239,228,.25),0 22px 44px rgba(20,22,40,.22)}
+.world-amerikaner h3{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400}
+.world-amerikaner .slogan{color:#E3D3A8}
+.world-amerikaner .soon{color:#CFC6B2}
+.world-drop{color:#FFFFFF;background:linear-gradient(180deg,#0A4FD1 0%,#062E86 100%);box-shadow:inset 0 0 0 1px rgba(255,210,63,.45),0 22px 44px rgba(20,22,40,.22)}
+.world-drop h3{font-family:'Barlow Condensed',system-ui,sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+.world-drop .slogan{color:#FFD23F}
+.world-drop .soon{color:#CFE0FF}
+.world-pool{color:#EEF1F6;background:radial-gradient(ellipse 90% 75% at 50% -10%,#2B4A6E 0%,#132438 55%,#081019 100%);box-shadow:inset 0 0 0 1px rgba(201,164,92,.55),0 22px 44px rgba(20,22,40,.22)}
+.world-pool h3{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;background:linear-gradient(100deg,#A57E3A 0%,#D4B06A 35%,#FFF6DA 50%,#D4B06A 65%,#A57E3A 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.world-pool .slogan{color:#C9A45C;font-family:'Barlow Condensed',system-ui,sans-serif;font-size:14px}
+.world-pool .soon{color:#B9C3D3}
 
 .next{border:1px dashed #C6C9D3;border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-height:220px;color:var(--muted);text-align:center;padding:30px}
 .next b{font-weight:500;font-size:20px;color:var(--text)}
@@ -93,6 +139,8 @@ html.no [lang="no"]{display:revert}
   .nav .sec{display:none}
   .hero{padding:64px 0 80px}
   .lockup{gap:18px}
+  .world{padding:26px 20px}
+  .world .head{flex-direction:column;align-items:flex-start}
 }
 </style>
 </head>
@@ -103,6 +151,7 @@ html.no [lang="no"]{display:revert}
 <header class="wrap bar">
 <a class="brand" href="./" aria-label="Gjemo"><svg width="40" height="28" aria-hidden="true"><use href="#gjmark"/></svg><span class="word">GJEMO</span></a>
 <nav class="nav" aria-label="Main">
+<a class="sec" href="#games"><span lang="en">Games</span><span lang="no">Spill</span></a>
 <a class="sec" href="#contact"><span lang="en">Contact</span><span lang="no">Kontakt</span></a>
 <div class="lang" role="group" aria-label="Language"><button type="button" data-l="en" aria-pressed="true">EN</button><button type="button" data-l="no" aria-pressed="false">NO</button></div>
 </nav>
@@ -115,6 +164,60 @@ html.no [lang="no"]{display:revert}
 <span class="word" aria-hidden="true"><span class="gje">GJE</span><span class="mo">MO</span></span>
 </h1>
 </div>
+
+<section id="games" class="wrap">
+<h2><span lang="en">Games</span><span lang="no">Spill</span></h2>
+<div class="games">
+<article class="world world-snooker">
+<div class="head">
+<img src="snooker-duels-ikon.svg" width="96" height="96" alt="Snooker Duels app icon">
+<div>
+<h3>Snooker Duels</h3>
+<p class="slogan">Duel your way to the top</p>
+</div>
+</div>
+<p lang="en">Snooker the way it's really played: full rules, real physics and computer rivals who think before they shoot. Climb from Bronze to World Class. Free, with no ads.</p>
+<p lang="no">Snooker slik det faktisk spilles: fulle regler, ekte fysikk og datarivaler som tenker før de støter. Klatre fra Bronze til World Class. Gratis, uten reklame.</p>
+<div class="links"><a href="https://snookerduels.com">snookerduels.com</a></div>
+</article>
+<article class="world world-amerikaner">
+<div class="head">
+<img src="amerikaner-ikon.png" width="96" height="96" alt="Amerikaner app icon">
+<div>
+<h3>Amerikaner</h3>
+<p class="slogan"><span lang="en">The cabin table</span><span lang="no">Hyttebordet</span></p>
+</div>
+</div>
+<p lang="en">The Norwegian card game from the cabin table. Play alone against the computer, or with the family at an online table. House rules included.</p>
+<p lang="no">Det norske kortspillet fra hyttebordet. Spill alene mot datamaskinen, eller med familien ved et online-bord. Husreglene er med.</p>
+<div class="links"><span class="soon"><span lang="en">For iPhone</span><span lang="no">For iPhone</span></span></div>
+</article>
+<article class="world world-drop">
+<div class="head">
+<img src="daily-drop-ikon.svg" width="96" height="96" alt="Daily Drop app icon">
+<div>
+<h3>Daily Drop</h3>
+<p class="slogan"><span lang="en">One course a day</span><span lang="no">Én bane om dagen</span></p>
+</div>
+</div>
+<p lang="en">Hold to slow the drop through the gates. Everyone plays the same course today, and the result is one emoji line to share.</p>
+<p lang="no">Hold for å bremse dråpen gjennom portene. Alle spiller samme bane i dag, og resultatet er én emoji-linje å dele.</p>
+<div class="links"><span class="soon"><span lang="en">In development</span><span lang="no">Under utvikling</span></span></div>
+</article>
+<article class="world world-pool">
+<div class="head">
+<img src="pool-duels-ikon.png" width="96" height="96" alt="Pool Duels app icon">
+<div>
+<h3>Pool Duels</h3>
+<p class="slogan"><span lang="en">Eight-ball</span><span lang="no">Åttepool</span></p>
+</div>
+</div>
+<p lang="en">Eight-ball with full rules, real physics and computer rivals, built on the same engine as Snooker Duels.</p>
+<p lang="no">Åttepool med fulle regler, ekte fysikk og datarivaler, bygget på samme motor som Snooker Duels.</p>
+<div class="links"><span class="soon"><span lang="en">In development</span><span lang="no">Under utvikling</span></span></div>
+</article>
+</div>
+</section>
 
 <section id="contact" class="wrap contact">
 <h2><span lang="en">Contact</span><span lang="no">Kontakt</span></h2>
@@ -177,10 +280,10 @@ html.no [lang="no"]{display:revert}
     var fs=parseFloat(getComputedStyle(word).fontSize);
     var NS='http://www.w3.org/2000/svg', D1='M118 120 L160 120 L160 176 A72 72 0 1 1 160 64', D2='M264 192 L264 52 L212 140 L160 64';
     stage=document.createElement('div'); stage.className='intro'; stage.setAttribute('aria-hidden','true'); stage.style.fontSize=fs+'px';
-    // First visit: the long intro (GJEndem / MOen -> GJE + MO -> pens). Later visits, or no storage: the short one.
+    // First visit: the long intro (GJEilo / MOen -> GJE + MO -> pens). Later visits, or no storage: the short one.
     var long=false;
     try{ if(!localStorage.getItem('gjemo-intro')){ localStorage.setItem('gjemo-intro','1'); long=localStorage.getItem('gjemo-intro')==='1'; } }catch(e){ long=false; }
-    stage.innerHTML=(long?'<span class="w">GJE</span><span class="w">ndem</span><span class="w">MO</span><span class="w">en</span>':'<span class="w">GJEMO</span>')+
+    stage.innerHTML=(long?'<span class="w">GJE</span><span class="w">ilo</span><span class="w">MO</span><span class="w">en</span>':'<span class="w">GJEMO</span>')+
       '<svg viewBox="26 30 256 180"><defs><linearGradient id="gji" gradientUnits="userSpaceOnUse" x1="42.75" y1="192" x2="264" y2="48"><stop offset="0" stop-color="#3B5BDB"/><stop offset="1" stop-color="#7C3AED"/></linearGradient></defs>'+
       '<path fill="none" stroke="url(#gji)" stroke-linecap="round" stroke-linejoin="round" d="'+D1+'"/><path fill="none" stroke="url(#gji)" stroke-linecap="round" stroke-linejoin="round" d="'+D2+'"/>'+
       '<circle r="9" fill="#5B3FD8"/><circle r="9" fill="#6D3FE0"/></svg>';
@@ -210,7 +313,7 @@ html.no [lang="no"]{display:revert}
         var a1=k(t,.1,.8), a2=k(t,.5,1.2), a3=k(t,.8,1.5), a4=k(t,1.2,1.9), m=k(t,2.2,3.3), fadeOut=1-k(t,1.9,2.5), d=k(t,1.8,2.5);
         place(G, Xs+(gT.x-Xs)*m, cy-dy+dy*m+(1-a1)*14, a1, (1-Math.min(1,a1*1.4))*6);
         place(M, Xs+(mT.x-Xs)*m, cy+dy-dy*m+(1-a3)*14, a3, (1-Math.min(1,a3*1.4))*6);
-        // «ndem» and «en» dissolve (blur + lift) while GJE and MO start to slide
+        // «ilo» and «en» dissolve (blur + lift) while GJE and MO start to slide
         place(N, Xs+wG, cy-dy+(1-a2)*14-d*16, Math.min(a2,fadeOut), Math.max((1-Math.min(1,a2*1.4))*6,d*10), 1+d*.04);
         place(E, Xs+wM, cy+dy+(1-a4)*14-d*16, Math.min(a4,fadeOut), Math.max((1-Math.min(1,a4*1.4))*6,d*10), 1+d*.04);
       } else {
@@ -239,6 +342,27 @@ html.no [lang="no"]{display:revert}
   function set(l){h.classList.toggle('no',l==='no');h.lang=l==='no'?'nb':'en';b.forEach(function(x){x.setAttribute('aria-pressed',String(x.dataset.l===l))});try{localStorage.setItem('gjemo-lang',l)}catch(e){}}
   b.forEach(function(x){x.addEventListener('click',function(){set(x.dataset.l)})});
   try{var s=localStorage.getItem('gjemo-lang');if(s)set(s)}catch(e){}
+})();
+</script>
+<script>
+/* Flow: sections and game cards rise in as they scroll into view, one after another. Without IntersectionObserver
+   or with reduced motion everything simply shows. */
+(function(){
+  var d=document.documentElement;
+  if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  d.classList.add('js');
+  var els=document.querySelectorAll('#games h2,.world');
+  for(var i=0;i<els.length;i++){ els[i].classList.add('rise'); }
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var el=e.target, n=el.classList.contains('world')?Array.prototype.indexOf.call(el.parentNode.children,el):0;
+      el.style.transitionDelay=(n%2*0.12+Math.floor(n/2)*0.06)+'s';
+      el.classList.add('in'); io.unobserve(el);
+      setTimeout(function(){ el.style.transitionDelay=''; },1400);
+    });
+  },{rootMargin:'0px 0px -8% 0px',threshold:.12});
+  for(var j=0;j<els.length;j++){ io.observe(els[j]); }
 })();
 </script>
 </body>
