@@ -95,8 +95,7 @@ h2::after{content:"";flex:1;height:1px;background:var(--line)}
 .js h2.rise.in{opacity:1}
 html{scroll-behavior:smooth}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .world.rise,.js h2.rise{opacity:1;transform:none}.world,.world img{transition:none}.world:hover,.world:hover img{transform:none}}
-.world-snooker{color:#F2EEE3;background:radial-gradient(ellipse 90% 70% at 50% -10%,#2A2B25 0%,#0E0F0C 55%,#0A0B09 100%);box-shadow:inset 0 0 0 1px rgba(201,164,92,.55),0 22px 44px rgba(20,22,40,.22)}
-.world-snooker::before{content:"";position:absolute;left:0;right:0;bottom:0;height:46%;background:radial-gradient(ellipse 70% 90% at 50% 100%,#23704A 0%,#175A33 45%,rgba(13,58,31,0) 100%);opacity:.55;pointer-events:none}
+.world-snooker{color:#F2EEE3;background:radial-gradient(ellipse 90% 75% at 50% -10%,#78162A 0%,#3E0B15 55%,#1A0408 100%);box-shadow:inset 0 0 0 1px rgba(201,164,92,.55),0 22px 44px rgba(20,22,40,.22)}
 .world-snooker h3{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;background:linear-gradient(100deg,#A57E3A 0%,#D4B06A 35%,#FFF6DA 50%,#D4B06A 65%,#A57E3A 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
 .world-snooker .slogan{color:#C9A45C;font-family:'Barlow Condensed',system-ui,sans-serif;font-size:14px}
 .world-snooker a{color:#F6E6B4;border-color:rgba(201,164,92,.7)}
@@ -110,7 +109,7 @@ html{scroll-behavior:smooth}
 .world-drop h3{font-family:'Barlow Condensed',system-ui,sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.06em}
 .world-drop .slogan{color:#FFD23F}
 .world-drop .soon{color:#CFE0FF}
-.world-pool{color:#EEF1F6;background:radial-gradient(ellipse 90% 75% at 50% -10%,#2B4A6E 0%,#132438 55%,#081019 100%);box-shadow:inset 0 0 0 1px rgba(201,164,92,.55),0 22px 44px rgba(20,22,40,.22)}
+.world-pool{color:#EEF1F6;background:radial-gradient(ellipse 90% 75% at 50% -10%,#1E5C98 0%,#0E2F55 55%,#040E24 100%);box-shadow:inset 0 0 0 1px rgba(201,164,92,.55),0 22px 44px rgba(20,22,40,.22)}
 .world-pool h3{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;background:linear-gradient(100deg,#A57E3A 0%,#D4B06A 35%,#FFF6DA 50%,#D4B06A 65%,#A57E3A 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
 .world-pool .slogan{color:#C9A45C;font-family:'Barlow Condensed',system-ui,sans-serif;font-size:14px}
 .world-pool .soon{color:#B9C3D3}
@@ -170,7 +169,7 @@ html.no [lang="no"]{display:revert}
 <div class="games">
 <article class="world world-snooker">
 <div class="head">
-<img src="snooker-duels-ikon.svg" width="96" height="96" alt="Snooker Duels app icon">
+<img src="snooker-duels-ikon.png" width="96" height="96" alt="Snooker Duels app icon">
 <div>
 <h3>Snooker Duels</h3>
 <p class="slogan">Duel your way to the top</p>
@@ -179,6 +178,18 @@ html.no [lang="no"]{display:revert}
 <p lang="en">Snooker the way it's really played: full rules, real physics and computer rivals who think before they shoot. Climb from Bronze to World Class. Free, with no ads.</p>
 <p lang="no">Snooker slik det faktisk spilles: fulle regler, ekte fysikk og datarivaler som tenker før de støter. Klatre fra Bronze til World Class. Gratis, uten reklame.</p>
 <div class="links"><a href="https://snookerduels.com">snookerduels.com</a></div>
+</article>
+<article class="world world-pool">
+<div class="head">
+<img src="pool-duels-ikon.png" width="96" height="96" alt="Pool Duels app icon">
+<div>
+<h3>Pool Duels</h3>
+<p class="slogan"><span lang="en">Every rack a duel</span><span lang="no">Hver rack en duell</span></p>
+</div>
+</div>
+<p lang="en">Pool the way it's really played: 8-ball and 9-ball with full rules, real physics and computer rivals who think before they shoot. Climb the Duels ladder. Free, with no ads.</p>
+<p lang="no">Pool slik det faktisk spilles: 8-ball og 9-ball med fulle regler, ekte fysikk og datarivaler som tenker før de støter. Klatre på Duels-stigen. Gratis, uten reklame.</p>
+<div class="links"><span class="soon"><span lang="en">Coming to iPhone</span><span lang="no">Kommer til iPhone</span></span></div>
 </article>
 <article class="world world-amerikaner">
 <div class="head">
@@ -202,18 +213,6 @@ html.no [lang="no"]{display:revert}
 </div>
 <p lang="en">Hold to slow the drop through the gates. Everyone plays the same course today, and the result is one emoji line to share.</p>
 <p lang="no">Hold for å bremse dråpen gjennom portene. Alle spiller samme bane i dag, og resultatet er én emoji-linje å dele.</p>
-<div class="links"><span class="soon"><span lang="en">In development</span><span lang="no">Under utvikling</span></span></div>
-</article>
-<article class="world world-pool">
-<div class="head">
-<img src="pool-duels-ikon.png" width="96" height="96" alt="Pool Duels app icon">
-<div>
-<h3>Pool Duels</h3>
-<p class="slogan"><span lang="en">Eight-ball</span><span lang="no">Åttepool</span></p>
-</div>
-</div>
-<p lang="en">Eight-ball with full rules, real physics and computer rivals, built on the same engine as Snooker Duels.</p>
-<p lang="no">Åttepool med fulle regler, ekte fysikk og datarivaler, bygget på samme motor som Snooker Duels.</p>
 <div class="links"><span class="soon"><span lang="en">In development</span><span lang="no">Under utvikling</span></span></div>
 </article>
 </div>
